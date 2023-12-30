@@ -1,11 +1,12 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { v4 as uuid4 } from 'uuid';
 
 import './App.css';
-import { Home } from './components/OLD/home';
-import Header from './components/OLD/header';
-import Footer from './components/OLD/footer';
+// import { Home } from './components/OLD/home';
+// import Header from './components/OLD/header';
+// import Footer from './components/OLD/footer';
 import HomePage from './components/HomePage/HomePage';
+import MagazinePage from './components/MagazinePage/MagazinePage';
 
 export const App = () => {
     const queryParams = new URLSearchParams(window.location.search);
@@ -23,13 +24,15 @@ export const App = () => {
     //     return null; // prevent rendering the rest of the app.
     // }
 
+    const [isLoading, setLoading] = useState(false);
+    useEffect(() => {
+        setLoading(true);
+    }, []);
+
     return (
         <div className="App">
-            {/* <Header /> */}
-
             {/* <Home pKey={pKey} coreId={coreId} /> */}
-            <HomePage />
-            <Footer />
+            {isLoading ? <MagazinePage /> : <HomePage />}
         </div>
     );
 };

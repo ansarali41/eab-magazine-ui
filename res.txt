@@ -1,0 +1,16 @@
+Get result:
+sendJsonMessage({ cmd: "getresult", key: pKey, coreid: coreId });
+
+Publish:
+sendJsonMessage({ cmd: "publish", key: pKey, coverid: 'item.key' });
+
+Response:
+{
+               “status”: “noprofile / notready / ready / published”,
+
+               “url”: “”,  // for redirect user, for example user has not completed the survey
+
+               “result”: [{“key”: “1111”, “value”: “url1”}, {“key”: “12222”, “value”: “url2”}]
+}
+
+ 

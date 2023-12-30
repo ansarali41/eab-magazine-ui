@@ -1,11 +1,16 @@
 .root {
     background: #e1f1f1;
 }
-.main-container {
+.loading-container {
     min-height: 100vh;
 }
 
 .heading-text {
     font-size: 18px;
     color: #003460;
+}
+
+.cover-image {
+    width: 140px;
+    height: 180px;
 }
