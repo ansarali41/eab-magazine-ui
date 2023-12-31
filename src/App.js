@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { createContext, useEffect, useState } from 'react';
 import { v4 as uuid4 } from 'uuid';
 
 import './App.css';
@@ -8,7 +8,17 @@ import './App.css';
 import HomePage from './components/HomePage/HomePage';
 import MagazinePage from './components/MagazinePage/MagazinePage';
 
+const testData = [
+    { key: 1111, value: 'https://i.ibb.co/s10p1d6/pngtree-color-matching-autumn-photography-book-cover-design-image-400413-1.jpg' },
+    { key: 1112, value: 'https://i.ibb.co/s10p1d6/pngtree-color-matching-autumn-photography-book-cover-design-image-400413-1.jpg' },
+    { key: 1113, value: 'https://i.ibb.co/s10p1d6/pngtree-color-matching-autumn-photography-book-cover-design-image-400413-1.jpg' },
+];
+
+export const AppContext = createContext();
+
 export const App = () => {
+    const [data, setData] = useState(testData);
+
     const queryParams = new URLSearchParams(window.location.search);
     console.log({ queryParams });
     const pKey = queryParams.get('key');
@@ -30,9 +40,11 @@ export const App = () => {
     }, []);
 
     return (
-        <div className="App">
-            {/* <Home pKey={pKey} coreId={coreId} /> */}
-            {isLoading ? <MagazinePage /> : <HomePage />}
-        </div>
+        <AppContext.Provider value={{ data, setData }}>
+            <div className="App">
+                {/* <Home pKey={pKey} coreId={coreId} /> */}
+                {isLoading ? <MagazinePage /> : <HomePage />}
+            </div>
+        </AppContext.Provider>
     );
 };

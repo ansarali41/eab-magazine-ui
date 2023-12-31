@@ -5,7 +5,7 @@ import Footer from '../Footer/Footer';
 const HomePage = () => {
     return (
         <div className="root">
-            <div className="loading-container d-flex align-items-center justify-content-center">
+            <div className="main-container d-flex align-items-center justify-content-center">
                 <div>
                     <div>
                         <p className="text-center heading-text fw-bolder">The future of higher education awaits.</p>

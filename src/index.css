@@ -11,6 +11,12 @@ body {
 }
 .check-icon {
     font-size: 32px;
+    /* color: #003460; */
+    color: darkgray;
+    padding: 5px 0px;
+}
+.selected-check-icon {
+    font-size: 32px;
     color: #003460;
     padding: 5px 0px;
 }
@@ -23,4 +29,11 @@ body {
     color: #fff;
     padding: 8px 40px;
     border-radius: 30px;
+}
+.next-btn-link {
+    text-decoration: none;
+    color: #fff;
+}
+.cover-image:hover {
+    filter: grayscale(30%);
 }
