@@ -19,7 +19,6 @@ const MagazineDetails = ({ coverDetails, setIsShowDetails, setSelectedCover, set
 
     const handleDiscarded = () => {
         setIsPublished(false);
-        setSelectedCover({});
         setIsShowDetails(false);
     };
     return (

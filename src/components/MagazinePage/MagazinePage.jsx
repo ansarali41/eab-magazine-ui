@@ -9,14 +9,17 @@ const MagazinePage = () => {
     const [isShowDetails, setIsShowDetails] = useState(false);
     const [coverDetails, setCoverDetails] = useState({});
 
-    const handleSelect = key => {
-        const updatedData = result.map(item => (item.key === key ? { ...item, selected: !item.selected } : { ...item, selected: false }));
-        setResult(updatedData);
+    const handleSelect = useCallback(
+        key => {
+            const updatedData = result.map(item => (item.key === key ? { ...item, selected: !item.selected } : { ...item, selected: false }));
+            setResult(updatedData);
 
-        // select cover
-        const selected = result.find(item => item.key === key && !item.selected);
-        setSelectedCover(selected);
-    };
+            // select cover
+            const selected = result.find(item => item.key === key && !item.selected);
+            setSelectedCover(selected);
+        },
+        [result, setResult],
+    );
 
     const handleShowDetails = useCallback(
         key => {
